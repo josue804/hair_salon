@@ -1,0 +1,42 @@
+.jv-background {
+    background: url('index_deck.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.navbar {
+    background-color: #314554;
+    border-color: #293a46;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: #dce3e8;
+}
+
+
+p, a, td, li, h1, h2, h3, h4 {
+    letter-spacing: 2px;
+    color: white;
+    font-family: 'Slabo 27px', serif;
+}
+
+.menu {
+  margin-top: 200px;
+}
+
+.menu a {
+  margin-left: 10px;
+  margin-right: 10px;
+  transition: background-color 1s ease;
+}
+
+.menu .btn-primary:hover {
+  background-color: #22527b;
+}
+
+.menu .btn-default:hover {
+  background-color: #dedede;
+}
