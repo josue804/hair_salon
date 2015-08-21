@@ -20,7 +20,7 @@ _This application manages Hair Stylists and Clients with two classes (Stylist an
 * _In PSQL `hair_salon=# CREATE TABLE stylists (id serial PRIMARY KEY, name varchar, specialty varchar, rating int);` to create stylists table_
 * _In PSQL `hair_salon=# CREATE TABLE clients (id serial PRIMARY KEY, stylist_id int, name varchar, rating int, hairtype varchar);` to create clients table_
 * _open new tab and run `$ ruby app.rb` in the project directory to run sinatra app_
-* _go to localhost:4567 to open webapp_
+* _go to `localhost:4567` in your browser to open webapp_
 
 
 ## Technologies Used
