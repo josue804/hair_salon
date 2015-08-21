@@ -29,4 +29,11 @@ class Stylist
         result = DB.exec("INSERT INTO stylists (name, specialty, rating) VALUES ('#{@name}', '#{@specialty}', #{@rating}) RETURNING id;")
         @id = result.first.fetch('id').to_i
     end
+
+    define_method(:update) do |attributes|
+        @name = attributes[:name]
+        @specialty = attributes[:specialty]
+        @rating = attributes[:rating]
+        DB.exec("UPDATE stylists SET name = '#{@name}', specialty = '#{@specialty}', rating = #{@rating} WHERE id = #{@id};")
+    end
 end
