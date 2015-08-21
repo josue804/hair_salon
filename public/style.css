@@ -16,27 +16,46 @@
     color: #dce3e8;
 }
 
-
-p, a, td, li, h1, h2, h3, h4 {
-    letter-spacing: 2px;
-    color: white;
-    font-family: 'Slabo 27px', serif;
-}
-
 .menu {
-  margin-top: 200px;
+    margin-top: 200px;
 }
 
 .menu a {
-  margin-left: 10px;
-  margin-right: 10px;
-  transition: background-color 1s ease;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: background-color 1s ease;
 }
 
 .menu .btn-primary:hover {
-  background-color: #22527b;
+    background-color: #22527b;
 }
 
 .menu .btn-default:hover {
-  background-color: #dedede;
+    background-color: #dedede;
+}
+
+
+p, td, li, h1, h2, h3, h4, small {
+    letter-spacing: 2px;
+    color: #314554;
+    font-family: 'Slabo 27px', serif;
+}
+
+label, input {
+    display: block;
+}
+
+form {
+    margin-bottom: 50px;
+}
+
+a:hover {
+ letter-spacing: 2px;
+ font-family: 'Slabo 27px', serif;
+ text-decoration: none;
+}
+
+a {
+    letter-spacing: 2px;
+    font-family: 'Slabo 27px', serif;
 }
