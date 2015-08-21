@@ -1,1 +1,30 @@
-<h1>Client Manager</h1>
+<h1>Clients</h1>
+
+
+<h3>Your Clients</h3>
+<% if @clients %>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Hairtype</th>
+            <th>Hair Stylist</th>
+            <th>Rating</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <% @clients.each() do |client|%>
+        <tr>
+            <td><%= client.name() %></td>
+            <td><%= client.hairtype() %></td>
+             <td><%= Stylist.find(client.stylist_id).name %></td>
+            <% if client.rating() > 0 %>
+                <td><%= client.rating() %></td>
+            <% else %>
+                 <td>Not yet rated</td>
+             <% end %>
+             <td><a href="/clients/<%= client.id() %>"><span class="glyphicon glyphicon-edit"></span></a></td>
+             <td><a href="/clients/<%= client.id() %>/delete"><span class="glyphicon glyphicon-remove-circle"></span></a></td>
+        </tr>
+        <% end %>
+    </table>
+<% end %>

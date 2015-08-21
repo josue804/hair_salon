@@ -21,16 +21,22 @@
             <th>Name</th>
             <th>Specialty</th>
             <th>Rating</th>
+            <th align="center">Clients</th>
+            <th align="center">Edit</th>
+            <th align="center">Delete</th>
         </tr>
         <% @stylists.each() do |stylist|%>
         <tr>
-            <td><a href="/stylists/<%= stylist.id() %>"><%= stylist.name() %></a></td>
+            <td><a href="/stylists/<%= stylist.id() %>/clients"><%= stylist.name() %></a></td>
             <td><%= stylist.specialty() %></td>
             <% if stylist.rating() > 0 %>
                 <td><%= stylist.rating() %></td>
             <% else %>
                  <td>Not yet rated</td>
              <% end %>
+             <td><a href="/stylists/<%= stylist.id() %>/clients"><span class="glyphicon glyphicon-user"></span></a></td>
+             <td><a href="/stylists/<%= stylist.id() %>"><span class="glyphicon glyphicon-edit"></span></a></td>
+             <td><a href="/stylists/<%= stylist.id() %>/delete"><span class="glyphicon glyphicon-remove-circle"></span></a></td>
         </tr>
         <% end %>
     </table>

@@ -1,0 +1,45 @@
+<h1><%= @stylists.name %>'s Clients</h1>
+
+<h3>Add a Client</h3>
+<form id="form_id" action="/stylists/<%= @stylists.id %>/clients" method="post">
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" class ="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="hairtype">Hair Type</label>
+        <input type="text" name="hairtype" class ="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-default btn-md">Add Client</button>
+</form>
+
+<% if @stylists.clients.first %>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Hair Type</th>
+            <th>Rating</th>
+            <th align="center">Edit</th>
+            <th align="center">Delete</th>
+        </tr>
+        <% @stylists.clients.each() do |client|%>
+        <tr>
+            <td><a href="/clients/<%= client.id() %>"><%= client.name() %></a></td>
+            <td><%= client.hairtype() %></td>
+            <% if client.rating() > 0 %>
+                <td><%= client.rating() %></td>
+            <% else %>
+                 <td>Not yet rated</td>
+             <% end %>
+             <td><a href="/clients/<%= client.id() %>"><span class="glyphicon glyphicon-edit"></span></a></td>
+             <td><a href="/clients/<%= client.id() %>/delete"><span class="glyphicon glyphicon-remove-circle"></span></a></td>
+        </tr>
+        <% end %>
+    </table>
+
+<% else %>
+    <h3><%= @stylists.name %> currently has no clients.</h1>
+<% end %>
