@@ -10,7 +10,7 @@ _This application manages Hair Stylists and Clients with two classes (Stylist an
 
 ## Setup
 
-* _`$ git clone` this repository into your computer_
+* _`$ git clone https://github.com/josue804/hair_salon` into your computer_
 * _`$ cd hair_salon` to enter project directory_
 * _`$ bundle` to install program dependencies_
 * _`$ postgres` to start a postgres server_
