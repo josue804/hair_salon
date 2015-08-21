@@ -6,18 +6,26 @@ set(:show_exceptions, false)
 describe('the hair salon webapp', {:type => :feature}) do
     it('properly displays the index page') do
         visit('/')
-        expect(page).to have_content('rum')
+        expect(page).to have_content('Stylist Manager')
     end
 
     it('properly displays stylist manager page') do
         visit('/')
         click_link('Stylist Manager')
-        expect(page).to have_content('Stylist Manager')
+        expect(page).to have_content('Stylists')
     end
 
     it('properly displays client manager page') do
         visit('/')
         click_link('Client Manager')
         expect(page).to have_content('Client Manager')
+    end
+
+    it('properly adds and displays a new stylist') do
+        visit('/stylists')
+        fill_in('name', :with => 'Mike')
+        fill_in('specialty', :with => 'Dyeing')
+        click_button('Add Stylist')
+        expect(page).to have_content('Mike')
     end
 end
