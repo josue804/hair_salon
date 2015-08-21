@@ -1,1 +1,37 @@
-<h1>Stylist Manager</h1>
+<h1>Stylists</h1>
+
+<h3>Add a Stylist</h3>
+<form action="/stylists" method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" class="form-control" placeholder="e.g. Edward Scissorhands">
+    </div>
+    <div class="form-group">
+        <label for="specialty">Specialty</label>
+        <input type="text" name="specialty" class="form-control" placeholder="e.g. Red and Wavy">
+    </div>
+
+    <button class="btn btn-primary btn-md">Add Stylist</button>
+</form>
+
+<h3>Your Stylists - <small class="small">Click Stylist Name For More</small></h3>
+<% if @stylists %>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Specialty</th>
+            <th>Rating</th>
+        </tr>
+        <% @stylists.each() do |stylist|%>
+        <tr>
+            <td><a href="/stylists/<%= stylist.id() %>"><%= stylist.name() %></a></td>
+            <td><%= stylist.specialty() %></td>
+            <% if stylist.rating() > 0 %>
+                <td><%= stylist.rating() %></td>
+            <% else %>
+                 <td>Not yet rated</td>
+             <% end %>
+        </tr>
+        <% end %>
+    </table>
+<% end %>
