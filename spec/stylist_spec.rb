@@ -35,4 +35,12 @@ describe(Stylist) do
             expect(@stylist.rating()).to(eq(9))
         end
     end
+
+    describe('#delete') do
+        it('deletes a stylist in the database') do
+            @stylist.save()
+            @stylist.delete()
+            expect(Stylist.all()).to(eq([]))
+        end
+    end
 end
