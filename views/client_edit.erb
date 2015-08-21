@@ -30,15 +30,18 @@
         </select>
     </div>
 
-
-    <div class="form-group">
-      <label for="stylist_id">Stylist</label>
-      <select name="stylist_id" class="form-control">
-        <% @stylists.each() do |stylist| %>
-          <option value="<%= stylist.id() %>"><%= stylist.name() %></option>
-        <% end %>
-      </select>
-    </div>
+    <% if @stylists.first %>
+        <div class="form-group">
+          <label for="stylist_id">Stylist</label>
+          <select name="stylist_id" class="form-control">
+            <% @stylists.each() do |stylist| %>
+              <option value="<%= stylist.id() %>"><%= stylist.name() %></option>
+            <% end %>
+          </select>
+        </div>
+    <% else %>
+        <p>Add a stylist in <a href="/stylists">Stylists</a></p>
+    <% end %>
 
     <button type="submit" class="btn btn-default btn-md">Edit <%= @client.name %></button>
 </form>
