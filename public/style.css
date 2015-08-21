@@ -16,8 +16,31 @@
     color: #dce3e8;
 }
 
+.navbar-right {
+    padding: 15px;
+    color: white;
+}
+
+.navbar-right a {
+    color: white;
+    font-size: 1em;
+}
+
+.navbar-right a:hover {
+    color: #dce3e8;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+li {
+    float: left;
+    text-decoration: none;
+    padding: 5px;
+    list-style-type: none
+}
+
 .menu {
-    margin-top: 200px;
+    margin-top: 250px;
 }
 
 .menu a {
