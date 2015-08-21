@@ -5,7 +5,7 @@ describe(Client) do
     before() do
         @stylist = Stylist.new({:id => nil, :name => 'Courtney', :specialty => 'Straight', :rating => 9})
         @stylist.save()
-        @client = Client.new({:id => nil, :stylist_id => @stylist.id(), :name => "Jessica", :rating => 9})
+        @client = Client.new({:id => nil, :stylist_id => @stylist.id(), :name => "Jessica", :hairtype => "Straight", :rating => 9})
     end
 
     describe('.all') do
@@ -16,7 +16,7 @@ describe(Client) do
 
     describe('#==') do
         it('overrides the equality operator to only compare non-id attributes') do
-            client_2 = Client.new({:id => nil, :stylist_id => @stylist.id(), :name => 'Jessica', :rating => 9})
+            client_2 = Client.new({:id => nil, :stylist_id => @stylist.id(), :name => 'Jessica', :hairtype => "Straight", :rating => 9})
             expect(@client).to(eq(client_2))
         end
     end
@@ -31,7 +31,7 @@ describe(Client) do
     describe('#update') do
         it('updates a client in the database') do
             @client.save()
-            @client.update({:stylist_id => 4, :name => "Josue", :rating => 9})
+            @client.update({:stylist_id => 4, :name => "Josue", :hairtype => "Curly", :rating => 9})
             expect(@client.stylist_id()).to(eq(4))
             expect(@client.name()).to(eq("Josue"))
             expect(@client.rating()).to(eq(9))
