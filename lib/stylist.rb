@@ -40,4 +40,17 @@ class Stylist
     define_method(:delete) do
         DB.exec("DELETE FROM stylists WHERE id = #{@id}")
     end
+
+    define_singleton_method(:find) do |find_id|
+        returned_stylist = DB.exec("SELECT * FROM stylists WHERE id = #{find_id}")
+        stylists = []
+        returned_stylist.each do |stylist|
+            id = stylist['id']
+            name = stylist['name']
+            specialty = stylist['specialty']
+            rating = stylist['rating'].to_i
+            stylists.push(Stylist.new({:id => id, :name => name, :specialty => specialty, :rating => rating}))
+        end
+        stylists.first()
+    end
 end
